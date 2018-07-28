@@ -11,9 +11,6 @@ OPTIONS_TO_SHOW = 3
 CLIP_DURATION = 10
 MARGIN = 60
 
-#FROM_START = 120
-#FROM_END = 120
-
 decimal.getcontext().prec = 6
 
 def get_video_duration(path):
@@ -98,11 +95,9 @@ for round in range(1, rounds + 1):
         selected_episodes = random.sample(seasons[season], OPTIONS_TO_SHOW)
         chosen_episode = random.choice(selected_episodes)
 
-        #play_video_clip(chosen_episode[0], FROM_START + random.randint(0, MARGIN), CLIP_DURATION)
         play_video_clip(chosen_episode[0], chosen_episode[1] / 6 + random.randint(-MARGIN, MARGIN), CLIP_DURATION)
 
         for choice in selected_episodes:
-            #play_video_clip(choice[0], choice[1] - FROM_END - random.randint(0, MARGIN), CLIP_DURATION)
             play_video_clip(choice[0], choice[1] - choice[1] / 6 + random.randint(-MARGIN, MARGIN), CLIP_DURATION)
 
         while True:
