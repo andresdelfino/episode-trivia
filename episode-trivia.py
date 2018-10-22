@@ -125,7 +125,7 @@ if len(players) > 1:
         players = sorted(players.items(), key=lambda item: item[1], reverse=True)
         winners = []
 
-        for player, score in players.items():
+        for player, score in players:
             if score < maximum_score:
                 break
 
@@ -140,10 +140,10 @@ if len(players) > 1:
             for winner in winners:
                 print(f'Well done, {winner}!')
 
-    print()
+        print()
 
-    for player, score in players.items():
-        print(player, score, sep=': ')
+        for player, score in players:
+            print(player, score, sep=': ')
 else:
     print('You scored', players.popitem()[1], sep=': ')
 
